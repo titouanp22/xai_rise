@@ -19,7 +19,7 @@ def main():
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    model, _ = get_resnet50(device=args.device)
+    model = get_resnet50(device=args.device)
     input_tensor = image_to_tensor(args.image, image_size=224, device=args.device)
     pred_class = predict_class(model, input_tensor)
     target_layers = [model.layer4[-1]]
